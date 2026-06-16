@@ -9,7 +9,7 @@ export const connectionOfDatabase=async()=> {
             serverSelectionTimeoutMS: 6000,
             maxPoolSize:10
         })
-        console.log("✅ Successfully connected to database")
+        console.log("✅ Successfully connected to database with mongoose DB")
     }
     catch(error){
         console.error("❌ Error connecting to database:", error)

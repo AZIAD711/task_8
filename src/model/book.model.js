@@ -6,7 +6,7 @@ const bookSchema = new Schema({
         type : String,
         // TODO : SOME CONTRAINT
         require : true ,
-        unique : true ,
+        // unique : true ,
         trim : true ,
         maxLength : 200,
         minLength : 3
@@ -16,7 +16,7 @@ const bookSchema = new Schema({
         type : String,
         // TODO : SOME CONTRAINT
         require : true ,
-        unique : true ,
+        // unique : true ,
         trim : true ,
         maxLength : 200,
         minLength : 3
