@@ -1,5 +1,5 @@
 // TODO : NESSCARY ROUTING 
-import {addBookController,updateBookByYearController,getBookByTitleController,getBookByRangeOfYearsController,getBookByGenresController,getAllBookController} from "./book.controller.js"
+import {addBookController,updateBookByYearController,getBookByTitleController,getBookByRangeOfYearsController,getBookByGenresController,getAllBookController,getAllBookSortByYearController} from "./book.controller.js"
 import express from "express"
 // TODO : EXPRESS APP 
 const API = express.Router()
@@ -13,5 +13,7 @@ API.get("/title/books/",getBookByTitleController)
 API.get("/year/books",getBookByRangeOfYearsController)
 // http://localhost:4000/books/skip-limit  
 API.get("/skip-limit",getAllBookController)
+// http://localhost:4000/books/year-integer 
+API.get("/year-integer",getAllBookController)
 export default API;
 

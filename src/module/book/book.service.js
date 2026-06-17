@@ -65,3 +65,14 @@ export const getAllBooksServices = async () => {
         console.log(`❌ ERROR IN GET BOOK BY GENERES SERVICE ${error}`)
     }
 }
+// TODO : GET ALL BOOKS BY SORT YEAR
+export const getAllBooksBySortYearServices = async () => {
+    try {
+        return await Book.find({
+            year:{$type:int}
+        }).sort({year:-1})
+    }
+    catch (error) {
+        console.log(`❌ ERROR IN GET BOOK BY GENERES SERVICE ${error}`)
+    }
+}
