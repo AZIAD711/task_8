@@ -104,3 +104,16 @@ export const deleteAllBooksBefore2000Services = async () => {
         console.log(`❌ ERROR IN DELETE BOOKS SERVICE ${error}`)
     }
 }
+// TODO : GET ALL BOOKS AFTER 2000 AND SORT THEM BY YEAR 
+export const getAllBooksAndSortByYearServices = async () => {
+    try {
+        return await Book.find({
+            year:{
+                $gte : 2000
+            }
+        }).sort({year:-1})
+    }
+    catch (error) {
+        console.log(`❌ ERROR IN DELETE BOOKS SERVICE ${error}`)
+    }
+}
