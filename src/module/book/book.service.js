@@ -3,7 +3,7 @@ import Book from "../../model/book.model.js"
 // TODO : ADD NEW BOOK 
 export const addBookService=async(data)=>{
 try {
-    return await Book.insertOne(data,{
+    return await Book.create([...data],{
         validateBeforeSave:true,
 
     })
