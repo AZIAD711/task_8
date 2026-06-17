@@ -62,7 +62,7 @@ export const getAllBooksServices = async () => {
         return await Book.find().skip(2).limit(3).sort({year:-1})
     }
     catch (error) {
-        console.log(`❌ ERROR IN GET BOOK BY GENERES SERVICE ${error}`)
+        console.log(`❌ ERROR IN GET BOOKS SERVICE ${error}`)
     }
 }
 // TODO : GET ALL BOOKS BY SORT YEAR
@@ -73,6 +73,21 @@ export const getAllBooksBySortYearServices = async () => {
         }).sort({year:-1})
     }
     catch (error) {
-        console.log(`❌ ERROR IN GET BOOK BY GENERES SERVICE ${error}`)
+        console.log(`❌ ERROR IN GET BOOK SORTED BY YEAR SERVICE ${error}`)
+    }
+}
+// TODO : GET ALL BOOKS EXCLUDED "Horror" AND "Science Fiction"
+export const getAllBooksExcpectSomeValuesServices = async () => {
+    try {
+        return await Book.find(
+            {
+                genres:{
+                    $nin : ["Horror","Science Fiction"]
+                }
+            }
+        )
+    }
+    catch (error) {
+        console.log(`❌ ERROR IN GET BOOKS EXCPECT SOME VALUES SERVICE ${error}`)
     }
 }
