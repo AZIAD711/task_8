@@ -117,3 +117,16 @@ export const getAllBooksAndSortByYearServices = async () => {
         console.log(`❌ ERROR IN DELETE BOOKS SERVICE ${error}`)
     }
 }
+// TODO : GET ALL BOOKS AFTER 2000 AND SORT THEM BY YEAR AND SHOW ONLY (TITLE,AUTHOR,YEAR) 
+export const getAllBooksAndSortByYearAndShowSomeFieldsServices = async () => {
+    try {
+        return await Book.find({
+            year:{
+                $gte : 2000
+            }
+        }).sort({year:-1}).select("title author year -_id")
+    }
+    catch (error) {
+        console.log(`❌ ERROR IN DELETE BOOKS SERVICE ${error}`)
+    }
+}
