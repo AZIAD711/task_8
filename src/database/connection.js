@@ -1,5 +1,5 @@
 import mongoose from "mongoose"
-
+import Book from "../model/book.model.js"
 export const connectionOfDatabase=async()=> {
     // TODO : DATABASE CONNECTION OF URL 
     const databaseUrl = "mongodb://localhost:27017/route_task_8"
@@ -10,6 +10,8 @@ export const connectionOfDatabase=async()=> {
             maxPoolSize:10
         })
         console.log("✅ Successfully connected to database with mongoose DB")
+        // TODO : SYNC INDEXES
+        Book.syncIndexes()
     }
     catch(error){
         console.error("❌ Error connecting to database:", error)

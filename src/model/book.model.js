@@ -52,6 +52,8 @@ const bookSchema = new Schema({
     collection:"book_data"
 }
 )
+// TODO : INDEXES
+bookSchema.index({title:1},{unique:true})
 // TODO : MODEL OF SCHEMA 
 const bookModel = model("Book",bookSchema) 
 export default bookModel
