@@ -23,3 +23,12 @@ export const updateBookByYearService=async(data)=>{
         console.log(`❌ ERROR IN UPDATE BOOK BY YEAR SERVICE ${error}`)
     }
 }
+// TODO : GET BOOK BY TITLE 
+export const getBookByTitleServices= async (data)=>{
+    try{
+        return await Book.findOne({title : data})
+    }
+    catch(error){
+        console.log(`❌ ERROR IN GET BOOK BY TITLE SERVICE ${error}`)
+    }
+}

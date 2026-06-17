@@ -1,4 +1,4 @@
-import {addBookService,updateBookByYearService} from "./book.service.js"
+import {addBookService,updateBookByYearService,getBookByTitleServices} from "./book.service.js"
 // TODO : ADD NEW BOOK 
 export const addBookController = async (request,response)=>{
     try {
@@ -21,6 +21,18 @@ export const updateBookByYearController = async (request,response)=>{
     }
     catch(error){
         console.log(`❌ ERROR IN UPDATE BOOK BY YEAR CONTROLLER ${error}`)
+        return response.status(500).json({"errorMessage" : "Internal Server Error !"})
+    }
+}
+// TODO : GET BOOK BY TITLE
+export const getBookByTitleController = async (request,response)=>{
+    try{
+const title = request.query.title
+const book = await getBookByTitleServices(title)
+        return response.status(200).json({"successMessage" : "Book Found Successfully !","book" : book})
+    }
+    catch(error){
+        console.log(`❌ ERROR IN GET BOOK BY TITLE CONTROLLER ${error}`)
         return response.status(500).json({"errorMessage" : "Internal Server Error !"})
     }
 }
