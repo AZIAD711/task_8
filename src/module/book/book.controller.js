@@ -1,4 +1,4 @@
-import { addBookService, updateBookByYearService, getBookByTitleServices, getBookByRangeOfYearsServices,getBooksByGenresServices,getAllBooksServices,getAllBooksBySortYearServices ,getAllBooksExcpectSomeValuesServices,deleteAllBooksBefore2000Services,getAllBooksAndSortByYearServices,getAllBooksAndSortByYearAndShowSomeFieldsServices} from "./book.service.js"
+import { addBookService, updateBookByYearService, getBookByTitleServices, getBookByRangeOfYearsServices,getBooksByGenresServices,getAllBooksServices,getAllBooksBySortYearServices ,getAllBooksExcpectSomeValuesServices,deleteAllBooksBefore2000Services,getAllBooksAndSortByYearServices,getAllBooksAndSortByYearAndShowSomeFieldsServices,separateGenresIntoSingleDocumentServices} from "./book.service.js"
 // TODO : ADD NEW BOOK 
 export const addBookController = async (request, response) => {
     try {
@@ -119,6 +119,17 @@ export const getAllBooksAndSortByYearAndShowSomeFieldsController = async (reques
     try {
         const book = await getAllBooksAndSortByYearAndShowSomeFieldsServices()
         return response.status(200).json({ "successMessage": "All Books Fetched Successfully !", "book": book })
+    }
+    catch (error) {
+        console.log(`❌ ERROR IN GET ALL BOOKS CONTROLLER ${error}`)
+        return response.status(500).json({ "errorMessage": "Internal Server Error !" })
+    }
+}
+// TODO : SEPERATE ALL ARRAY OF GENRS INOT SINLAGE DOCUMENT 
+export const separateGenresIntoSingleDocumentController = async (request, response) => {
+    try {
+        const book = await separateGenresIntoSingleDocumentServices()
+        return response.status(200).json({ "successMessage": "All Genres Fetched Successfully !", "book": book })
     }
     catch (error) {
         console.log(`❌ ERROR IN GET ALL BOOKS CONTROLLER ${error}`)

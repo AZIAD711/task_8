@@ -130,3 +130,14 @@ export const getAllBooksAndSortByYearAndShowSomeFieldsServices = async () => {
         console.log(`❌ ERROR IN DELETE BOOKS SERVICE ${error}`)
     }
 }
+// TODO : SEPERATE ALL ARRAY OF GENRS INOT SINLAGE DOCUMENT 
+export const separateGenresIntoSingleDocumentServices = async () => {
+    try {
+        return await Book.aggregate([{
+            $unwind : "$genres"
+        }])
+    }
+    catch (error) {
+        console.log(`❌ ERROR IN UNWIND SERVICE ${error}`)
+    }
+}
