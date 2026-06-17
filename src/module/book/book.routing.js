@@ -1,5 +1,5 @@
 // TODO : NESSCARY ROUTING 
-import {addBookController,updateBookByYearController,getBookByTitleController} from "./book.controller.js"
+import {addBookController,updateBookByYearController,getBookByTitleController,getBookByRangeOfYearsController} from "./book.controller.js"
 import express from "express"
 // TODO : EXPRESS APP 
 const API = express.Router()
@@ -9,5 +9,7 @@ API.post("/add",addBookController)
 API.patch("/:title",updateBookByYearController)
 // http://localhost:4000/books/title/books?title=bookTitle
 API.get("/title/books/",getBookByTitleController)
+// http://localhost:4000/books/year/books?from=1990&to=2010 
+API.get("/year/books",getBookByRangeOfYearsController)
 export default API;
 

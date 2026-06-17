@@ -32,3 +32,14 @@ export const getBookByTitleServices= async (data)=>{
         console.log(`❌ ERROR IN GET BOOK BY TITLE SERVICE ${error}`)
     }
 }
+// TODO : GET BOOK BY RANGE OF YEARS 
+export const getBookByRangeOfYearsServices= async (from,to)=>{
+    try{
+        return await Book.find({
+            year: { $gte: Number(from), $lte: Number(to) }
+        })
+    }
+    catch(error){
+        console.log(`❌ ERROR IN GET BOOK BY RANGE OF YEARS SERVICE ${error}`)
+    }
+}
