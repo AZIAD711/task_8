@@ -141,3 +141,19 @@ export const separateGenresIntoSingleDocumentServices = async () => {
         console.log(`❌ ERROR IN UNWIND SERVICE ${error}`)
     }
 }
+// TODO : GET ALL BOOKS WITH LOGS
+export const getAllBooksWithLogsService = async () => {
+    try {
+        return await Book.aggregate([{
+           $lookup:{
+                from: "log_data",          
+                localField: "_id",     
+                foreignField: "bookId",
+                as:"log_data"
+           }
+        }])
+    }
+    catch (error) {
+        console.log(`❌ ERROR IN LOGS WITH BOOKS SERVICE ${error}`)
+    }
+}

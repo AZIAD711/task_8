@@ -1,5 +1,5 @@
 // TODO : NESSCARY ROUTING 
-import {addBookController,updateBookByYearController,getBookByTitleController,getBookByRangeOfYearsController,getBookByGenresController,getAllBookController,getAllBookSortByYearController,getAllBooksExcpectSomeValuesController,deleteAllBooksBefore2000Controller,getAllBooksAndSortByYearController,getAllBooksAndSortByYearAndShowSomeFieldsController,separateGenresIntoSingleDocumentController} from "./book.controller.js"
+import {addBookController,updateBookByYearController,getBookByTitleController,getBookByRangeOfYearsController,getBookByGenresController,getAllBookController,getAllBookSortByYearController,getAllBooksExcpectSomeValuesController,deleteAllBooksBefore2000Controller,getAllBooksAndSortByYearController,getAllBooksAndSortByYearAndShowSomeFieldsController,separateGenresIntoSingleDocumentController,getAllBooksWithLogsController} from "./book.controller.js"
 import express from "express"
 // TODO : EXPRESS APP 
 const API = express.Router()
@@ -25,5 +25,7 @@ API.get("/aggregate1",getAllBooksAndSortByYearController)
 API.get("/aggregate2",getAllBooksAndSortByYearAndShowSomeFieldsController)
 // http://localhost:4000/books/aggregate3 
 API.get("/aggregate3",separateGenresIntoSingleDocumentController)
+// http://localhost:4000/books/aggregate4
+API.get("/aggregate4",getAllBooksWithLogsController)
 export default API;
 
