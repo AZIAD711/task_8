@@ -1,4 +1,4 @@
-import { addBookService, updateBookByYearService, getBookByTitleServices, getBookByRangeOfYearsServices,getBooksByGenresServices,getAllBooksServices,getAllBooksBySortYearServices ,getAllBooksExcpectSomeValuesServices} from "./book.service.js"
+import { addBookService, updateBookByYearService, getBookByTitleServices, getBookByRangeOfYearsServices,getBooksByGenresServices,getAllBooksServices,getAllBooksBySortYearServices ,getAllBooksExcpectSomeValuesServices,deleteAllBooksBefore2000Services} from "./book.service.js"
 // TODO : ADD NEW BOOK 
 export const addBookController = async (request, response) => {
     try {
@@ -86,6 +86,17 @@ export const getAllBooksExcpectSomeValuesController = async (request, response) 
     try {
         const book = await getAllBooksExcpectSomeValuesServices()
         return response.status(200).json({ "successMessage": "All Books Fetched Successfully !", "book": book })
+    }
+    catch (error) {
+        console.log(`❌ ERROR IN GET ALL BOOKS CONTROLLER ${error}`)
+        return response.status(500).json({ "errorMessage": "Internal Server Error !" })
+    }
+}
+// TODO : DELETE ALL BOOKS BEFORE 2000
+export const deleteAllBooksBefore2000Controller = async (request, response) => {
+    try {
+        const book = await deleteAllBooksBefore2000Services()
+        return response.status(200).json({ "successMessage": "All Books Deleted Successfully !", "book": book })
     }
     catch (error) {
         console.log(`❌ ERROR IN GET ALL BOOKS CONTROLLER ${error}`)

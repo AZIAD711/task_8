@@ -91,3 +91,16 @@ export const getAllBooksExcpectSomeValuesServices = async () => {
         console.log(`❌ ERROR IN GET BOOKS EXCPECT SOME VALUES SERVICE ${error}`)
     }
 }
+// TODO : DELETE ALL BOOKS BEFORE 2000
+export const deleteAllBooksBefore2000Services = async () => {
+    try {
+        return await Book.deleteMany({
+            year:{
+                $lte : 2000
+            }
+        })
+    }
+    catch (error) {
+        console.log(`❌ ERROR IN DELETE BOOKS SERVICE ${error}`)
+    }
+}
