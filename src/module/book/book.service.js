@@ -43,3 +43,16 @@ export const getBookByRangeOfYearsServices= async (from,to)=>{
         console.log(`❌ ERROR IN GET BOOK BY RANGE OF YEARS SERVICE ${error}`)
     }
 }
+// TODO : GET BOOKS BY GENERES 
+export const getBooksByGenresServices= async(data)=>{
+    try{
+return await Book.find(
+    {
+        "genres":data
+    }
+)
+    }
+    catch(error){
+       console.log(`❌ ERROR IN GET BOOK BY GENERES SERVICE ${error}`)  
+    }
+}

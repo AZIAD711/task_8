@@ -1,4 +1,4 @@
-import { addBookService, updateBookByYearService, getBookByTitleServices, getBookByRangeOfYearsServices } from "./book.service.js"
+import { addBookService, updateBookByYearService, getBookByTitleServices, getBookByRangeOfYearsServices,getBooksByGenresServices } from "./book.service.js"
 // TODO : ADD NEW BOOK 
 export const addBookController = async (request, response) => {
     try {
@@ -40,7 +40,18 @@ export const getBookByRangeOfYearsController = async (request, response) => {
     try {
         const {from,to} = request.query
         const book = await getBookByRangeOfYearsServices(from,to)
-         console.log(request.query);
+        return response.status(200).json({ "successMessage": "Book Found Successfully !", "book": book })
+    }
+    catch (error) {
+        console.log(`❌ ERROR IN GET BOOK BY TITLE CONTROLLER ${error}`)
+        return response.status(500).json({ "errorMessage": "Internal Server Error !" })
+    }
+}
+// TODO : GET BOOK BY GENRES
+export const getBookByGenresController = async (request, response) => {
+    try {
+        const {genre} = request.query
+        const book = await getBooksByGenresServices(genre)
         return response.status(200).json({ "successMessage": "Book Found Successfully !", "book": book })
     }
     catch (error) {
