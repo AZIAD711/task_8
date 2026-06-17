@@ -1,15 +1,15 @@
 import {Schema,model} from "mongoose"
 // TODO : LOG SCHEMA 
 const logSchema = new Schema({
-    // TODO : MESSAGE 
-    message :{
-        type : String,
+    // TODO : BOOK ID 
+    bookId :{
+        type : Schema.Types.ObjectId,
         // TODO : SOME CONTRAINT
         require : true ,
         trim : true ,
         maxLength : 200,
         minLength : 3,
-        default : "No message provided"
+        ref : "Book"
     },
     // TODO : ACTION 
     action :{

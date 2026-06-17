@@ -11,3 +11,15 @@ try {
     console.log(`❌ ERROR IN BOOK SERVICE ${error}`)
 }
 }
+// TODO : UPDATE BOOK BY YEAR 
+export const updateBookByYearService=async(data)=>{
+    try{
+        return await Book.findOneAndUpdate(
+            {title : data},
+            {$set : {year : 2022}},
+        )
+    }
+    catch(error){
+        console.log(`❌ ERROR IN UPDATE BOOK BY YEAR SERVICE ${error}`)
+    }
+}
